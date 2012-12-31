@@ -22,8 +22,6 @@ virtualbox-guest-utils 4.1.18-dfsg-1.1<br>
 ruby1.8-dev 1.8.7.358-6<br>
 puppet 2.7.18-2<br>
 ssh 1:6.0p1-3<br>
-ruby1.8-dev 1.8.7.358-6<br>
-puppet 2.7.18-2
 ###Installation process
 is documented in images in the same folder as this README.md file
 After the installation process ends, unmount the debian ISO image.
