@@ -28,7 +28,8 @@ After the installation process ends, unmount the debian ISO image.
 ###Configuration done before packaging
 See: [the packaging documentation](vagrant-sydseter-debian-wheezy-amd64-puppet-ext/blob/master/doc/README.md) page for details
 ###Installing the vagrant box
-    # Make sure you are in the same directory as the box
-    vagrant box add vagrant-sydseter-debian-wheezy-amd64-puppet-ext vagrant-sydseter-debian-wheezy-amd64-puppet-ext.box
-    # You need to have the ssh and etc folders and the Vagrantfile in your current directory for booting the image
+    # From the root of this repository, do the following from the cmd.
     vagrant up
+###Post configuration
+You can configure the Vagrant file to clone out your git repositories before the
+box boots. see [the git service config](vagrant-sydseter-debian-wheezy-amd64-puppet-ext/blob/master/etc/git.yml) for details.
