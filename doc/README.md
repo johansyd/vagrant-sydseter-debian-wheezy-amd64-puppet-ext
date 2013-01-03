@@ -12,6 +12,8 @@
 
 ###Install sudo
 
+    sudo su # if you haven't already done so
+
     apt-get install sudo
 
     # add admin group and attach the vagrant user to the group
@@ -73,14 +75,17 @@
 
 ###Install ruby and puppet
 
-sudo apt-get install ruby1.8-dev
-sudo apt-get install puppet
+    # On the virtualbox image
 
-# make sure the group puppet is present
+    sudo apt-get install ruby1.8-dev
+    sudo apt-get install puppet
 
-groupadd puppet
+    # make sure the group puppet is present
+
+    sudo groupadd puppet
 
 ###Tweeks
+    # On the virtualbox image
 
     pico /etc/ssh/sshd_config
 
@@ -90,15 +95,20 @@ groupadd puppet
 
     sudo apt-get clean
 ###Reducing size
-    # set up ~/vagrant-startsiden-debian-wheezy-amd64 as a shared folder with the name 'share' and boot into the vm image
+    git clone https://github.com/johansyd/vm-utils ~/vm-utils
+    # set up ~/vm-utils as a shared folder with the name 'share' and boot into the vm image
+    # install tool for deleting empty space
+
+    sudo apt-get install zerofree
 
     sudo su
+
+    cd /media/sf_share
+    
+    ./freespace.sh
     
     # Boot into single user mode
     init 1
-
-    # install toll for deleting empty space
-    sudo apt-get install zerofree
 
     # make vm image read-only
     mount -o remount,ro /dev/sda1
@@ -107,7 +117,7 @@ groupadd puppet
     zerofree /dev/sda1
 
     # make vm image writeable
-    mount -o remount,ro /dev/sda1
+    mount -o remount,rw /dev/sda1
     
     sudo apt-get remove zerofree
     exit
@@ -115,8 +125,8 @@ groupadd puppet
     # login to the vm image again
 
     sudo su
-    cd /media/sf_share/utils
-    sh cleanup.sh
+    cd /media/sf_share
+    ./freespace.sh
     exit
 
 ###Configuring puppet
