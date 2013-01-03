@@ -4,3 +4,6 @@
 [submodule "services"]
 	path = services
 	url = git@github.com:johansyd/ruby-git-services.git
+[submodule "puppet/modules"]
+	path = puppet/modules
+	url = git@github.com:startsiden/puppet-modules.git
