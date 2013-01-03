@@ -1,0 +1,6 @@
+# == node: vagrant-sydseter-debian-wheezy-amd64-puppet-ext.vagrantup.com
+# vagrant environment for puppet development
+# === Authors
+# Johan Sydseter <johan.sydseter@startsiden.no>
+---
+classes:

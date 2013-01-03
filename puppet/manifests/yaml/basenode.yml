@@ -1,0 +1,5 @@
+# == node: basenode
+# The external basenode definition
+# Author: Johan Sydseter, <johan.sydseter@startsiden.no>
+---
+classes:
