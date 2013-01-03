@@ -157,19 +157,58 @@
 
     vagrant init
 
+
+see to it that the ssh private key exist:
+    ls ~/vagrant-sydseter-debian-wheezy-amd64-puppet-ext/ssh/id_rsa
+
+Create the vagrant file
+
     vim Vagrantfile
 
-    # see to it that the ssh private key exist:
-    # ~/vagrant-sydseter-debian-wheezy-amd64-puppet-ext/ssh/id_rsa
+Add this to the Vagrantfile
 
-    # Add this to the Vagrantfile
-        # Every Vagrant virtual environment requires a box to build off of.
-        config.vm.box = 'vagrant-sydseter-debian-wheezy-amd64-puppet-ext'
-        config.ssh.username = 'vagrant'
-        config.ssh.host = '127.0.0.1'
+    require './services/git_cloningservice.rb'
+    # etc dir for abcn vagrant yaml configuration files 
+    git_etc = File.dirname(__FILE__) + '/etc'
 
-    # Private ssh key
-    config.ssh.private_key_path = File.dirname(__FILE__) + '/ssh/id_rsa'
+    # yaml configuration file suffix
+    git_config_suffix = 'git'
+
+    # Load the config
+    git_cloning_service = Git::CloningService.new(
+    git_etc, 
+    git_config_suffix)
+
+    # Clone out the repositories if necessary
+    git_cloning_service.clone
+
+    # Get the location of the source folder where all the git repositories are stored
+    # reuse this variable as a base for all shared vagrant folders
+    git_src = git_cloning_service.src
+
+    Vagrant::Config.run do |config|
+      # All Vagrant configuration is done here. The most common configuration
+      # options are documented and commented below. For a complete reference,
+      # please see the online documentation at vagrantup.com.
+
+      # Every Vagrant virtual environment requires a box to build off of.
+      config.vm.box = 'vagrant-sydseter-debian-wheezy-amd64-puppet-ext'
+      config.ssh.username = 'vagrant'
+      config.ssh.host = '127.0.0.1'
+
+      # Private ssh key
+      config.ssh.private_key_path = File.dirname(__FILE__) + '/ssh/id_rsa'
+
+      # The url from where the 'config.vm.box' box will be fetched if it
+      # doesn't already exist on the user's system.
+      config.vm.box_url = "http://www.sydseter.com/vagrant/vagrant-sydseter-debian-wheezy-amd64-puppet-ext.box"
+
+      config.vm.provision :puppet do |puppet|
+          puppet.module_path    = 'puppet/modules'
+          puppet.manifests_path = "puppet/manifests"
+          puppet.manifest_file  = "site.pp"
+      end
+    end
 
 ####Adding documentation
 
