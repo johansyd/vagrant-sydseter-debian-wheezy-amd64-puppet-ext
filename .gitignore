@@ -1,0 +1,3 @@
+.vagrant
+etc/git.local.yml
+*.*~
