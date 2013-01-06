@@ -84,16 +84,34 @@
 
     sudo groupadd puppet
 
+###Installing and configuring BDD testing
+
+Installing libtest-bdd-cucumber-perl
+
+    sudo apt-get install libtest-bdd-cucumber-perl
+
 ###Tweeks
-    # On the virtualbox image
+
+On the virtualbox image
 
     pico /etc/ssh/sshd_config
 
-    # change UseDNS to no
+Change UseDNS to the value no or add the statement 'UseDNS no' if if UseDNS 
+doesn't exist
 
-    # delete cache
+    UseDNS no
+    
+Solving 'stdin: is not a tty' error
 
-    sudo apt-get clean
+    sudo su
+    pico /root/.profile
+
+Change the statement 'mesg n' to the following
+
+    if `tty -s`; then
+        mesg n
+    fi
+    
 ###Reducing size
 
     git clone https://github.com/johansyd/vm-utils ~/vm-utils
@@ -152,9 +170,13 @@ set up ~/vm-utils as a shared folder with the name 'share' and boot into the vm 
 
 ###Packaging box
 
-    # shutdown vm image and remove shared folder
+Shutdown vm image and remove shared folder
 
-    # on the host machine
+    vagrant package vagrant-sydseter-debian-wheezy-amd64-puppet-ext --base vagrant-sydseter-debian-wheezy-amd64-puppet-ext --output vagrant-sydseter-debian-wheezy-amd64-puppet-ext.box
+
+####Testing the box
+
+On the host machine
 
     cd ~/vagrant-sydseter-debian-wheezy-amd64-puppet-ext
 
@@ -165,13 +187,19 @@ see to it that the ssh private key exist:
     
     ls ~/vagrant-sydseter-debian-wheezy-amd64-puppet-ext/ssh/id_rsa
 
+Clone out the git services
+
+    git clone git@github.com:johansyd/ruby-git-services.git services
+
+    cp -r ./services/etc ./etc
+
 Create the vagrant file
 
     vim Vagrantfile
 
 Add this to the Vagrantfile
 
-    require './services/git_cloningservice.rb'
+    require File.dirname(__FILE__) + '/services/git_cloningservice.rb'
     # etc dir for abcn vagrant yaml configuration files 
     git_etc = File.dirname(__FILE__) + '/etc'
 
@@ -214,17 +242,6 @@ Add this to the Vagrantfile
       end
     end
 
-####Adding documentation
+Start the vagrant box
 
-    mkdir -p ~/vagrant-sydseter-debian-wheezy-amd64-puppet-ext/ssh/id_rsa/doc/images
-    # copied the screen shots from the installation process to ~/vagrant-sydseter-debian-wheezy-amd64-puppet-ext/ssh/id_rsa/doc/images
-
-####Saving this file as
-    # Ctrl-S as ~/vagrant-sydseter-debian-wheezy-amd64-puppet-ext/ssh/id_rsa/doc/PACKAGING.md
-    # Ctrl-S as ~/vagrant-sydseter-debian-wheezy-amd64-puppet-ext/ssh/id_rsa/doc/README.md
-
-    vagrant package vagrant-sydseter-debian-wheezy-amd64-puppet-ext --base vagrant-sydseter-debian-wheezy-amd64-puppet-ext --output vagrant-sydseter-debian-wheezy-amd64-puppet-ext.box
-
-####Testing the box
-    vagrant box add vagrant-sydseter-debian-wheezy-amd64-puppet-ext vagrant-sydseter-debian-wheezy-amd64-puppet-ext.box
     vagrant up
