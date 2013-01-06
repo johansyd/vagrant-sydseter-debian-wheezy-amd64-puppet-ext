@@ -128,6 +128,6 @@ end
 
 Vagrant::Config.run do |config|
   config.vm.provision :shell do |shell|
-    shell.inline = "prove -v /vagrant/t"
+    shell.inline = "prove -v /vagrant/tests"
   end
 end
