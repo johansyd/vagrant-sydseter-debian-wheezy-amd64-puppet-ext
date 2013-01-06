@@ -4,7 +4,7 @@
 #
 # Author:: Johan Sydseter (mailto:johan.sydseter@startsiden.no)
 # 
-require './services/git_cloningservice.rb'
+require File.dirname(__FILE__) + '/services/git_cloningservice.rb'
 # etc dir for abcn vagrant yaml configuration files 
 git_etc = File.dirname(__FILE__) + '/etc'
 
@@ -124,4 +124,10 @@ Vagrant::Config.run do |config|
   # chef-validator, unless you changed the configuration.
   #
   #   chef.validation_client_name = "ORGNAME-validator"
+end
+
+Vagrant::Config.run do |config|
+  config.vm.provision :shell do |shell|
+    shell.inline = "prove -v /vagrant/t"
+  end
 end
