@@ -48,9 +48,6 @@ command line with 'vagrant up'.
     # From the root of this repository, do the following from the cmd.
     vagrant up
 
-    # From the root of this repository, do the following from the cmd.
-    vagrant up
-
 ###Post configuration
 
 You can configure the Vagrant file to clone out your git repositories before the
