@@ -26,7 +26,7 @@ puppet 2.7.18-2<br>
 ssh 1:6.0p1-3<br>
 test-bdd-cucumber-perl 0.11-1<br>
 ###Installation process
-is documented in images [here](vagrant-sydseter-debian-wheezy-amd64-puppet ee xt/blob/master/doc/images).
+is documented in images [here](vagrant-sydseter-debian-wheezy-amd64-puppet-ext/blob/master/doc/images).
 After the installation process ends, unmount the debian ISO image.
 ###Configuration done before packaging
 See: [the packaging documentation](vagrant-sydseter-debian-wheezy-amd64-puppet-ext/blob/master/doc/README.md) page for details
