@@ -16,7 +16,7 @@ installto:
   bin: /usr/local/bin
 
 depends:
-  - viritualbox
+  - virtualbox
   - vagrant
 
 excludedir:
@@ -25,5 +25,5 @@ excludedir:
 installdir: /usr/local/etc/vagrant-sydseter-debian-wheezy-amd64-puppet-ext
 tests: t/
 test_requires:
-  - viritualbox
+  - virtualbox
   - vagrant
