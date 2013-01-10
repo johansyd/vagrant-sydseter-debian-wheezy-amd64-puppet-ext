@@ -11,9 +11,9 @@ exludeext:
   - .gitmodules
 
 installto:
-  bin: /usr/share/doc/vagrant-sydseter-debian-wheezy-amd64-puppet-ext
+  doc: /usr/share/doc/vagrant-sydseter-debian-wheezy-amd64-puppet-ext
   t: /usr/share/doc/vagrant-sydseter-debian-wheezy-amd64-puppet-ext
-
+  bin: /usr/local/bin
 
 depends:
   - viritualbox
