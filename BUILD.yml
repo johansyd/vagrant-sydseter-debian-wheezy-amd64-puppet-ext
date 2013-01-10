@@ -22,7 +22,7 @@ depends:
 excludedir:
   - utils
 
-installdir: /usr/local/vagrant-sydseter-debian-wheezy-amd64-puppet-ext
+installdir: /usr/local/etc/vagrant-sydseter-debian-wheezy-amd64-puppet-ext
 tests: t/
 test_requires:
   - viritualbox
