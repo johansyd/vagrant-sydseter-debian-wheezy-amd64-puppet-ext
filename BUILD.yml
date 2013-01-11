@@ -25,6 +25,11 @@ excludedir:
 installdir: /usr/local/etc/vagrant-sydseter-debian-wheezy-amd64-puppet-ext
 tests: t/
 test_requires:
-  - virtualbox
-  - vagrant
-  - git
+  - sudo
+  - build-essential
+  - virtualbox-guest-utils
+  - linux-headers-3.2.0.4-amd64
+  - ssh
+  - libtest-bdd-cucumber-perl
+  - puppet
+  - ruby1.8-dev

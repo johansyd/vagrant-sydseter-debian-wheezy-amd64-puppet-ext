@@ -1,4 +1,4 @@
 #!/bin/sh
-vagrant up;
+puppet apply --modulepath=puppet/modules; ./puppet/manifests/site.pp;
 sleep 1;
-vagrant halt;
+perl tests/001.vagrant_system_tests.t;
