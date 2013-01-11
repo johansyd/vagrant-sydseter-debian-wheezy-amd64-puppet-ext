@@ -17,6 +17,7 @@ installto:
 depends:
   - virtualbox
   - vagrant
+  - git
 
 excludedir:
   - utils
@@ -26,3 +27,4 @@ tests: t/
 test_requires:
   - virtualbox
   - vagrant
+  - git
