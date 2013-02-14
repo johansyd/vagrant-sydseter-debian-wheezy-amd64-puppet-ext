@@ -20,7 +20,7 @@ amd64
 sudo 1.8.5p2-1<br>
 linux-headers-3.2.0-4-amd64<br>
 build-essential 11.5<br>
-virtualbox-guest-utils 4.1.18-dfsg-1.1<br>
+virtualbox-guest-utils 4.1.18-dfsg-2<br>
 ruby1.8-dev 1.8.7.358-6<br>
 puppet 2.7.18-2<br>
 ssh 1:6.0p1-3<br>
