@@ -13,7 +13,7 @@ amd64
 ###ISO image - build date:
 17-Nov-2012 22:05
 ###Vagrant box size
-432MB
+411MB
 ###Vagrant packaging Guidlines
 [vagrantup.com](http://vagrantup.com/v1/docs/base_boxes.html "Vagrant packaging guidelines")
 ###Installed packages
