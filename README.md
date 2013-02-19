@@ -17,14 +17,14 @@ amd64
 ###Vagrant packaging Guidlines
 [vagrantup.com](http://vagrantup.com/v1/docs/base_boxes.html "Vagrant packaging guidelines")
 ###Installed packages
-sudo 1.8.5p2-1<br>
+sudo 1.8.5<br>
 linux-headers-3.2.0-4-amd64<br>
 build-essential 11.5<br>
-virtualbox-guest-utils 4.1.18-dfsg-2<br>
-ruby1.8-dev 1.8.7.358-6<br>
-puppet 2.7.18-2<br>
-ssh 1:6.0p1-3<br>
-test-bdd-cucumber-perl 0.11-1<br>
+virtualbox-guest-utils 4.1.18<br>
+ruby1.8-dev 1.8.7<br>
+puppet 2.7.18<br>
+ssh 1:6.0<br>
+test-bdd-cucumber-perl 0.11<br>
 ###Installation process
 is documented in images [here](https://github.com/johansyd/vagrant-sydseter-debian-wheezy-amd64-puppet-ext/blob/master/doc/images).
 After the installation process ends, unmount the debian ISO image.
