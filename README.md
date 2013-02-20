@@ -51,4 +51,10 @@ command line with 'vagrant up'.
 ###Post configuration
 
 You can configure the Vagrant file to clone out your git repositories before the
-box boots. see [the git service config](vagrant-sydseter-debian-wheezy-amd64-puppet-ext/blob/master/etc/git.yml) for details.
+box boots. see [the git service config](https://github.com/johansyd/vagrant-sydseter-debian-wheezy-amd64-puppet-ext/blob/master/etc/git.yml) for details.
+  config.vm.share_folder(
+    "node",
+    "/home/abcn/node",
+    abcn_src + "/node",
+    :nfs => true
+  )
